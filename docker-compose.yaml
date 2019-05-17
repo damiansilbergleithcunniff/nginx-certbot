@@ -1,0 +1,14 @@
+version: '3'
+services:
+  nginx:
+    build: 
+      context: ./src
+    image: damiansilbergleithcunniff/nginx-certbot:1.0.0
+    restart: always
+    environment:
+      CERTBOT_EMAIL: "your.email@example.com"
+    ports:
+    - "80:80"
+    - "443:443"
+    volumes:
+      - ./example:/etc/nginx/user.conf.d

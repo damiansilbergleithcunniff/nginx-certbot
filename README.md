@@ -1,5 +1,19 @@
-# docker-nginx-certbot
+# nginx-certbot
 Create and automatically renew website SSL certificates using the letsencrypt free certificate authority, and its client *certbot*, built on top of the nginx server.
+
+# forked from
+I forked this from: https://github.com/staticfloat/docker-nginx-certbot
+I did this because I need to lock down the image as the dockerhub published version
+only uses the latest tag and docker-compose doesn't appear to be able to reference a sha hash for the image.
+
+## Modifications
+### docker-compose
+I've added a docker-compose for building this image and publishing it to my dockerhub.  This replaces the functionality in the original Makefile.
+Use the following:
+```
+docker-compose build
+docker-compose push
+```
 
 # More information
 
