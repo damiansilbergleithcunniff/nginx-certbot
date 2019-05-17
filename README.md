@@ -25,13 +25,12 @@ This repository was originally forked from `@henridwyer`, many thanks to him for
 
 # Usage
 
-Use this image with a `Dockerfile` such as:
-```Dockerfile
-FROM staticfloat/nginx-certbot
-COPY *.conf /etc/nginx/conf.d/
+Create a config directory for your custom configs:
+```
+mkdir conf.d
 ```
 
-And a `.conf` file such as:
+And a `.conf` file such as in that directory:
 ```nginx
 server {
     listen              443 ssl;
@@ -57,6 +56,8 @@ services:
             - 443:443/tcp
         environment:
             - CERTBOT_EMAIL=owner@company.com
+        volumes:
+          - ./conf.d:/etc/nginx/user.conf.d
   ...
 ```
 
