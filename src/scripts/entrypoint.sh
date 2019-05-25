@@ -15,6 +15,9 @@ auto_enable_configs
 
 # Start up nginx, save PID so we can reload config inside of run_certbot.sh
 nginx -g "daemon off;" &
+# add a brief sleep, this seems to help when a docker-compose driven container
+# is recovered after host server reboot
+sleep 1
 export NGINX_PID=$!
 
 # Lastly, run startup scripts
