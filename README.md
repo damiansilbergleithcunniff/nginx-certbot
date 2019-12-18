@@ -30,7 +30,7 @@ Create a config directory for your custom configs:
 mkdir conf.d
 ```
 
-And a `.conf` file such as in that directory:
+And a `.conf` in that directory:
 ```nginx
 server {
     listen              443 ssl;
@@ -57,7 +57,7 @@ services:
         environment:
             - CERTBOT_EMAIL=owner@company.com
         volumes:
-          - ./conf.d:/etc/nginx/user.conf.d
+          - ./conf.d:/etc/nginx/user.conf.d :ro
   ...
 ```
 
